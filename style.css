@@ -7,6 +7,7 @@
 body{
     text-align: center;
     background-color: rgba(17, 93, 99, 0.96);
+    padding: 3rem 0;
 }
 
 .msg-container{
@@ -38,27 +39,25 @@ body{
 
 h1{
     font-size: 2.4rem;
-    color: #251d1d;
     color: whitesmoke;
 }
 
 .container{
-    height: 70vh;
+    max-height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
+    padding: 4rem 0;
 }
 
 .game{
-    height: 55vmin;
-    width: 60vmin;
+    height: 400px;
+    width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* flex-direction: column; */
-    gap: 1.5vmin;
+    gap: 3vmin;
 }
 
 .box{
