@@ -57,10 +57,11 @@ h1{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 3vmin;
+    gap: 3%;
 }
 
 .box{
+    position: relative;
     height: 7rem;
     width: 7rem;
     border: none;
@@ -70,3 +71,16 @@ h1{
     color: #ef233c;
 }
 
+@media (max-width: 370px) {
+    .box {
+        height: 6rem;
+        width: 6rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .box {
+        height: 5rem;
+        width: 5rem;
+    }
+}
