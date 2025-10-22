@@ -5,6 +5,7 @@ let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector(".msg");
 
 let turnO = true; // playerX, playerO
+let count = 0;
 
 let winner = [
     [0, 1, 2],
@@ -41,13 +42,17 @@ const disableBoxes = ()=>{
 
 const showWinner = (player)=>{
     msg.innerText = `Congratulations! Winner is ${player}`;
-    msgContainer.classList.remove("hide");
     disableBoxes();
+    setTimeout(()=>{
+        msgContainer.classList.remove("hide");
+    }, 300)
 }
 
 const showDraw = ()=>{
     msg.innerText = `Oops! Game is Drawn.`;
-    msgContainer.classList.remove("hide");
+    setTimeout(() => {
+        msgContainer.classList.remove("hide");
+    }, 300);
 }
 
 const checkWinner = ()=>{
@@ -57,11 +62,12 @@ const checkWinner = ()=>{
         let pos2val = boxes[pattern[1]].innerText;
         let pos3val = boxes[pattern[2]].innerText;
 
-        if(pos1val != "" && pos2val != "" && pos3val != "")
+        if(pos1val !== "" && pos2val !== "" && pos3val !== "")
         {
-            if(pos1val === pos2val && pos2val === pos3val)
+            if(pos1val === pos2val && pos1val === pos3val)
             {
                 showWinner(pos1val);
+                break;
             }
             else if(count === 9){
                 showDraw();
@@ -70,14 +76,13 @@ const checkWinner = ()=>{
     }
 }
 
-let count = 0;
 boxes.forEach((box)=>{
     box.addEventListener("click", ()=>{
         if(turnO)
         {
             box.innerText = "O";
             turnO = false;
-            box.style.color = "#A63A50";
+            box.style.color = "#06630cff";
         }
         else{
             box.innerText = "X";
@@ -87,5 +92,5 @@ boxes.forEach((box)=>{
         box.disabled = true;
         count++;
         checkWinner();
-    })
-})
+    });
+});
